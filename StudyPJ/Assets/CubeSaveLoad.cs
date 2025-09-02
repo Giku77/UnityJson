@@ -11,8 +11,7 @@ public class CubeSaveLoad : MonoBehaviour
 
     public CubeData[] cubeData;
     private static string filePath => Path.Combine(Application.persistentDataPath, "cubeData.json");
-
-
+ 
     public void SaveCubeData()
     {
         //if (randomSpawnCube.cubeData == null) {
