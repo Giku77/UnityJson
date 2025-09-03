@@ -1381,8 +1381,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 758466837}
   m_HandleRect: {fileID: 758466836}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.8333333
+  m_Value: 0
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1526,6 +1526,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1365832438}
+  - component: {fileID: 1365832439}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -1549,9 +1550,33 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 300}
+  m_AnchoredPosition: {x: 0, y: 0.00017265078}
+  m_SizeDelta: {x: -383, y: 16}
   m_Pivot: {x: 0, y: 1}
+--- !u!114 &1365832439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1365832437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_StartCorner: 0
+  m_StartAxis: 0
+  m_CellSize: {x: 96, y: 96}
+  m_Spacing: {x: 5, y: 5}
+  m_Constraint: 1
+  m_ConstraintCount: 4
 --- !u!1 &1444041754
 GameObject:
   m_ObjectHideFlags: 0
@@ -1839,7 +1864,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ec76101e34a24e40be2245dd940c97d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemslotPrefab: {fileID: 2265654145129907280, guid: 56b4d81c4cde75d44b9c6cbb32555269, type: 3}
+  itemslotPrefab: {fileID: 5504639749191236964, guid: a5666a0a63ce31743b598be608741ab0, type: 3}
+  itemSlotParent: {fileID: 1365832438}
+  scrollRect: {fileID: 1491362075}
+  content: {fileID: 1365832438}
   img: {fileID: 586809512}
   Name: {fileID: 160818983}
   Value: {fileID: 371986220}
