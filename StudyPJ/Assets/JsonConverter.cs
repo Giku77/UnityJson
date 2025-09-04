@@ -2,6 +2,29 @@ using UnityEngine;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
+public class ItemDataConverter : JsonConverter<ItemData2>
+{
+    public override void WriteJson(JsonWriter writer, ItemData2 value, JsonSerializer serializer)
+    {
+        //writer.WriteStartObject();
+        //writer.WritePropertyName("id");
+        writer.WriteValue(value.Id);
+        //writer.WriteEndObject();
+    }
+    public override ItemData2 ReadJson(JsonReader reader, System.Type objectType, ItemData2 existingValue, bool hasExistingValue, JsonSerializer serializer)
+    {
+        var id = reader.Value as string;
+        return DataTableManger2.ItemTable.Get(id);
+        //ItemData2 itemData = null;
+        //JObject obj = JObject.Load(reader);
+        //var id = (string)(obj["id"]?.ToObject<string>() ?? string.Empty);
+        //if (!string.IsNullOrEmpty(id))
+        //{
+        //    itemData = DataTableManger2.ItemTable.Get(id);
+        //}
+        //return itemData;
+    }
+}
 
 public class ColorConverter : JsonConverter<Color>
 {

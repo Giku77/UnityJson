@@ -23,8 +23,8 @@ public enum Items
 
 public static class DataTableIds
 {
-  public static readonly string[] StringTableIds = { 
-        "Str_KR",
+  public static readonly string[] StringTableIds = {
+        "StringTableKr",
         "Str_EN",
         "Str_JP"
     };
@@ -38,6 +38,13 @@ public static class DataTableIds
         "Sword",
         "Bow",
         "Heart",
+    };
+
+  public static readonly string[] ItemTableIds2 = {
+        "검",
+        "방패",
+        "활",
+        "하트",
     };
 
 
