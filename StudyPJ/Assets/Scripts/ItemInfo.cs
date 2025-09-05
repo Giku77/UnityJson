@@ -20,11 +20,11 @@ public class ItemInfo : MonoBehaviour
     public void SetEmpty()
     {
         icon.sprite = null;
-        itemName.text = "None";
-        itemDesc.text = "No Item Selected";
-        itemType.text = "N/A";
-        itemPrice.text = "0";
-        itemValue.text = "0";
+        itemName.text = string.Empty;
+        itemDesc.text = string.Empty;
+        itemType.text = string.Empty;
+        itemPrice.text = string.Empty;
+        itemValue.text = string.Empty;
     }
 
     public void SetItem(SaveItemData data)

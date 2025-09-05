@@ -125,14 +125,6 @@ public class InvenSlotList : MonoBehaviour
             //if (itemCount > 0)
             //    RemoveItem(itemCount - 1);
         }
-        else if (Input.GetKeyDown(KeyCode.S))
-        {
-            Save();
-        }
-        else if (Input.GetKeyDown(KeyCode.L))
-        {
-            Load();
-        }
         else if (Input.GetKeyDown(KeyCode.R))
         {
             Debug.Log("Random Sort/Filter");
@@ -146,12 +138,14 @@ public class InvenSlotList : MonoBehaviour
 
     private void OnEnable()
     {
-        Load();
+        //Load();
+        LoadData();
     }
 
     private void OnDisable()
     {
-        Save();
+        //Save();
+        SaveData();
     }
 
     private void UpdateSlots(List<SaveItemData> itemlist)
@@ -232,40 +226,54 @@ public class InvenSlotList : MonoBehaviour
         testItemList.Add(itemD);
         UpdateSlots(testItemList);
     }
-
-    public void RemoveItem(int index)
-    {
-        testItemList.RemoveAt(selectedSlotIndex);
-        UpdateSlots(testItemList);
-        //listView[index].SetEmpty();
-        //listView[index].gameObject.SetActive(false);
-        //itemCount--;
-    }
     public void RemoveItem()
     {
         if (selectedSlotIndex == -1)
             return;
         Debug.Log($"Remove Item at {selectedSlotIndex}");
         testItemList.Remove(selectedItemData);
+        //testItemList.Remove(testItemList[selectedSlotIndex]);
         UpdateSlots(testItemList);
     }
 
-    public void Save()
+    //public void Save()
+    //{
+    //    var json = JsonConvert.SerializeObject(testItemList, Formatting.Indented);
+    //    var filePath = Path.Combine(Application.persistentDataPath, "test.json");
+    //    File.WriteAllText(filePath, json);
+    //}
+
+    public void SaveData()
     {
-        var json = JsonConvert.SerializeObject(testItemList, Formatting.Indented);
-        var filePath = Path.Combine(Application.persistentDataPath, "test.json");
-        File.WriteAllText(filePath, json);
+        SaveLoadManager.Data = new SaveDataV3();
+        SaveLoadManager.Data.Inventory = testItemList;
+        SaveLoadManager.Save(SaveLoadManager.SaveDataVersion - 1);
     }
 
-    public void Load()
+    //public void Load()
+    //{
+    //    var filePath = Path.Combine(Application.persistentDataPath, "test.json");
+    //    if (File.Exists(filePath))
+    //    {
+    //        var json = File.ReadAllText(filePath);
+    //        testItemList = JsonConvert.DeserializeObject<List<SaveItemData>>(json);
+    //        UpdateSlots(testItemList);
+    //    }
+    //}
+
+    public void LoadData()
     {
-        var filePath = Path.Combine(Application.persistentDataPath, "test.json");
-        if (File.Exists(filePath))
+        SaveLoadManager.Data = new SaveDataV3();
+        if (SaveLoadManager.Load(SaveLoadManager.SaveDataVersion - 1))
         {
-            var json = File.ReadAllText(filePath);
-            testItemList = JsonConvert.DeserializeObject<List<SaveItemData>>(json);
-            UpdateSlots(testItemList);
+            Debug.Log("Game Loaded");
+            testItemList = SaveLoadManager.Data.Inventory ?? new List<SaveItemData>();
         }
+        else
+        {
+            Debug.Log("No Save Data");
+        }
+        UpdateSlots(testItemList);
     }
 
 
