@@ -62,6 +62,20 @@ public class SaveDataV3 : SaveData
     }
     public override SaveData VersionUp()
     {
+       var saveDataV4 = new SaveDataV4();
+       return saveDataV4;
+    }
+}
+
+public class SaveDataV4 : SaveData
+{
+    public int ActiveIndex;
+    public SaveDataV4()
+    {
+        Version = 4;
+    }
+    public override SaveData VersionUp()
+    {
         throw new System.NotImplementedException();
     }
 }

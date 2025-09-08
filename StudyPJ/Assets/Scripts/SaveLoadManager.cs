@@ -1,11 +1,11 @@
 using UnityEngine;
 using System.IO;
 using Newtonsoft.Json;
-using SaveDataVC = SaveDataV3;
+using SaveDataVC = SaveDataV4;
 
 public class SaveLoadManager 
 {
-    public static int SaveDataVersion => 3;
+    public static int SaveDataVersion => 4;
 
     public static SaveDataVC Data { get; set; }
 
@@ -23,6 +23,7 @@ public class SaveLoadManager
         "Save9.json",
         "Save10.json"
     };
+
 
     public static string SaveDirectory => Application.persistentDataPath + "/Save";
     private static JsonSerializerSettings setiings => new JsonSerializerSettings

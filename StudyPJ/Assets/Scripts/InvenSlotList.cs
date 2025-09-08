@@ -245,9 +245,9 @@ public class InvenSlotList : MonoBehaviour
 
     public void SaveData()
     {
-        SaveLoadManager.Data = new SaveDataV3();
-        SaveLoadManager.Data.Inventory = testItemList;
-        SaveLoadManager.Save(SaveLoadManager.SaveDataVersion - 1);
+        //SaveLoadManager.Data = new SaveDataV3();
+        //SaveLoadManager.Data.Inventory = testItemList;
+        //SaveLoadManager.Save(SaveLoadManager.SaveDataVersion - 1);
     }
 
     //public void Load()
@@ -263,17 +263,17 @@ public class InvenSlotList : MonoBehaviour
 
     public void LoadData()
     {
-        SaveLoadManager.Data = new SaveDataV3();
-        if (SaveLoadManager.Load(SaveLoadManager.SaveDataVersion - 1))
-        {
-            Debug.Log("Game Loaded");
-            testItemList = SaveLoadManager.Data.Inventory ?? new List<SaveItemData>();
-        }
-        else
-        {
-            Debug.Log("No Save Data");
-        }
-        UpdateSlots(testItemList);
+        //SaveLoadManager.Data = new SaveDataV3();
+        //if (SaveLoadManager.Load(SaveLoadManager.SaveDataVersion - 1))
+        //{
+        //    Debug.Log("Game Loaded");
+        //    testItemList = SaveLoadManager.Data.Inventory ?? new List<SaveItemData>();
+        //}
+        //else
+        //{
+        //    Debug.Log("No Save Data");
+        //}
+        //UpdateSlots(testItemList);
     }
 
 
