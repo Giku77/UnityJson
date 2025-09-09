@@ -35,6 +35,7 @@ public class DifficultyWindow : GenericWindow
         {
             if (t.isOn)
             {
+                //index = t.transform.GetSiblingIndex();
                 Debug.Log("index: " + index);
                 break;
             }
